@@ -1,0 +1,23 @@
+@extends('layouts/app')
+@section('content')
+  <section>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>タイトル</th>
+          <th>値段</th>
+        </tr>
+      </thead>
+      <tbody>
+        @foreach($books as $book)
+          <tr>
+            <td>{{$book->id}}</td>
+            <td>{{$book->title}}</td>
+            <td>{{$book->price}}</td>
+          </tr>
+        @endforeach
+      </tbody>
+    </table>
+  </section>
+@endsection
