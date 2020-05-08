@@ -1,0 +1,15 @@
+version: '3'
+services:
+  mysql:
+    image: mysql:8
+    volumes:
+      - data:/var/lib/mysql/
+    ports:
+      - "3309:3306"
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
+      MYSQL_DATABASE: sandbox
+      MYSQL_USER: root
+volumes:
+  data:
+    driver: local
