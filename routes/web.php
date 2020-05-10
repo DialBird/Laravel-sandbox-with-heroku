@@ -13,11 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['middleware' => 'guest:web'], function() {
+    Route::view('/', 'welcome');
 });
-Route::resource('book', 'BookController');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('book', 'BookController');
+Route::get('home', 'HomeController@index')->name('home');
